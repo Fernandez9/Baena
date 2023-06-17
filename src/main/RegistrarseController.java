@@ -42,14 +42,17 @@ public class RegistrarseController implements Initializable {
      @FXML
     private void btnConfimar (ActionEvent event){
         
+        String nombre=this.txtNombre.getText();
+        String correo=this.txtCorreo.getText();
+        String contra=this.txtContra.getText();
+        float cel=Integer.parseInt(this.txtCel.getText());
+        String confirContra=this.txtConfirContra.getText();
         
-        if(txtContra.getText().equals(txtConfirContra.getText())){
+        if(contra.equals(confirContra)){
             ListasClientes ls=new ListasClientes();
         
-        ls.registrar(txtNombre, txtCorreo, txtContra, txtCel);
+        ls.registrar(nombre, correo, contra, cel);
         
-        
-         
         
          try {
              

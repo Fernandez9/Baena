@@ -6,8 +6,8 @@ import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 public class ListasClientes {
-    
-      Clientes cab;
+
+    Clientes cab;
 
     public ListasClientes() {
         cab = null;
@@ -17,19 +17,29 @@ public class ListasClientes {
     //y oculta la de login, si es false, se mantiene la ventana
     public Clientes login(String corre, String contras) {
 
-        Clientes p = cab;
+        Clientes aux=buscarCorreo(corre);
+        
+        if (aux == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("No se encuentra registrado");
+            alert.showAndWait();
 
-        while (p != null) {
-            if (p.getCorreo().equals(corre) && p.getContra().equals(contras)) {
+            return null;
+        } else{
+            JOptionPane.showMessageDialog(null, "si hay clientes");
+       
+                if (( aux.contra).equals(contras)) {
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setTitle("Bienvenido");
                 alert.setContentText("Bienvenido");
                 alert.showAndWait();
-                return p;
+                return aux;
 
-            } else if (p.getCorreo().equals(corre) && p.getContra().compareTo(contras) != 0) {
+            } else  {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setTitle("Error");
@@ -38,17 +48,12 @@ public class ListasClientes {
                 return null;
 
             }
-            p = p.sig;
-        } 
+                
+        }
+         
 
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setTitle("Error");
-        alert.setContentText("No se encuentra registrado");
-        alert.showAndWait();
-
-        return null;
     }
+    
     
     
     public Clientes buscarCorreo(String emai) {
@@ -59,28 +64,27 @@ public class ListasClientes {
 
             Clientes p = cab;
 
-            do {
+            while (p != null) {
 
-                if (p.getCorreo().equals(emai)) {
+                if (p.correo.equals(emai)) {
                     return p;
                 } else {
                     p = p.sig;
                 }
 
-            } while (p != cab);
-
+            }
+            return null;
         }
 
-        return null;
+        
     }
 
-    public Clientes CrearNodo( TextField name, TextField email, TextField password,
-            TextField cellph) {
+    public Clientes CrearNodo( String name, String email,String password, float cellph) {
 
         Clientes buscar = null;
 
         try {
-            buscar = buscarCorreo(email.getText());
+            buscar = buscarCorreo(email);
 
             
             if (buscar != null) {
@@ -92,13 +96,11 @@ public class ListasClientes {
                         + "ya se encuentra en uso.  Reemplazarlo!");
                 alert.showAndWait();
 
-                email.setText("");
-                email.requestFocus();
                 return null;
             } else {
 
-                Clientes info = new Clientes(name.getText(),email.getText(), 
-                        password.getText(), Integer.parseInt(cellph.getText()));
+                Clientes info = new Clientes(name,email, 
+                        password,cellph);
                 return info;
             }
 
@@ -121,8 +123,7 @@ public class ListasClientes {
         }
     }
 
-    public void registrar(TextField name, TextField email, TextField password,
-            TextField cellph) {
+    public void registrar(String name, String email,String password, float cellph) {
 
         Clientes info = CrearNodo(name, email, password, cellph);
 

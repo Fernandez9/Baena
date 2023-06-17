@@ -41,12 +41,13 @@ public class LoginController implements Initializable {
     @FXML
     private void loginclientebtn(ActionEvent event) {
         ListasClientes ls = new ListasClientes();
+        
+        String email=this.txtemail.getText();
+        String contra=this.txtcontra.getText();
 
-        Clientes l = ls.login(txtemail.getText(), txtcontra.getText());
+        Clientes l = ls.login(email, contra);
 
         if (l != null) {
-
-            ls.login(txtemail.getText(), txtcontra.getText());
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Productos.fxml"));
@@ -64,7 +65,7 @@ public class LoginController implements Initializable {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            ls.login(txtemail.getText(), txtcontra.getText());
+            
         }
     }
 
