@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="356.0" style="-fx-background-color: AQUAMARINE;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="main.RegistrarseController">
+<AnchorPane id="AnchorPane" prefHeight="428.0" prefWidth="356.0" style="-fx-background-color: AQUAMARINE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RegistrarseController">
    <children>
       <Pane layoutX="36.0" layoutY="43.0" prefHeight="333.0" prefWidth="293.0" style="-fx-background-color: SLATEGREY;">
          <children>
@@ -65,7 +64,7 @@
             <Image url="@../IMAGES/letras%20farma.png" />
          </image>
       </ImageView>
-      <Button fx:id="btn1" layoutX="125.0" layoutY="390.0" mnemonicParsing="false" style="-fx-background-color: DARKSLATEGREY;" text="Volver" textFill="WHITE" />
-      <Button fx:id="btn2" layoutX="215.0" layoutY="390.0" mnemonicParsing="false" style="-fx-background-color: DARKSLATEGREY;" text="Confirmar" textFill="WHITE" />
+      <Button fx:id="btn1" layoutX="125.0" layoutY="390.0" mnemonicParsing="false" onAction="#Volverbtn" style="-fx-background-color: DARKSLATEGREY;" text="Volver" textFill="WHITE" />
+      <Button fx:id="btn2" layoutX="215.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnConfimar" style="-fx-background-color: DARKSLATEGREY;" text="Confirmar" textFill="WHITE" />
    </children>
 </AnchorPane>

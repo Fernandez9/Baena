@@ -1,4 +1,3 @@
-
 package main;
 
 import java.io.IOException;
@@ -17,11 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
 public class LoginController implements Initializable {
 
-    
-     @FXML
+    @FXML
     private TextField txtemail;
 
     @FXML
@@ -43,39 +40,57 @@ public class LoginController implements Initializable {
 
     @FXML
     private void loginclientebtn(ActionEvent event) {
-          ListasClientes ls=new ListasClientes();
-          
-          ls.login(txtemail.getText(),txtcontra.getText());
+        ListasClientes ls = new ListasClientes();
+
+        Clientes l = ls.login(txtemail.getText(), txtcontra.getText());
+
+        if (l != null) {
+
+            ls.login(txtemail.getText(), txtcontra.getText());
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Productos.fxml"));
+                Parent root = loader.load();
+
+                ProductosController controlador = loader.getController();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(scene);
+                stage.showAndWait();
+
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            ls.login(txtemail.getText(), txtcontra.getText());
+        }
     }
 
     @FXML
     private void registrasebtn(ActionEvent event) {
 
-         try {
-             FXMLLoader loader=new FXMLLoader(getClass().getResource("Registrarse.fxml"));
-             Parent root=loader.load();
-             
-             RegistrarseController controlador=loader.getController();
-             
-             Scene scene =new Scene(root);
-             Stage stage=new Stage();
-             stage.initModality(Modality.APPLICATION_MODAL);
-             stage.setScene(scene);
-             stage.showAndWait();
-             
-             
-         } catch (IOException ex) {
-             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Registrarse.fxml"));
+            Parent root = loader.load();
+
+            RegistrarseController controlador = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.showAndWait();
+
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-        
-        
-        
-        
-    }    
-    
+
+    }
+
 }
