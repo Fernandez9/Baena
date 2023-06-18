@@ -2,13 +2,13 @@ package main;
 
 public class Clientes {
 
-    String nombre;
-    String correo;
-    String contra;
-    float cel;
+    public String nombre;
+    public String correo;
+    public String contra;
+    public float cel;
 
-    Clientes sig;
-    Clientes ant;
+    public Clientes sig;
+    public Clientes ant;
 
     public Clientes() {
 
@@ -24,7 +24,6 @@ public class Clientes {
         sig = null;
         ant = null;
     }
-
 
 
    

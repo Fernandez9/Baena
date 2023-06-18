@@ -101,6 +101,7 @@ public class RegistrarseController implements Initializable {
              stage.showAndWait();
              
              
+             
          } catch (IOException ex) {
              Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
          }
