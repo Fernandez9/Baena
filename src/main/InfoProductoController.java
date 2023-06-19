@@ -41,11 +41,12 @@ public class InfoProductoController implements Initializable {
              
              Scene scene =new Scene(root);
              Stage stage=new Stage();
+              Stage st=(Stage) this.btnvolver.getScene().getWindow();
              stage.initModality(Modality.APPLICATION_MODAL);
              stage.setScene(scene);
              stage.showAndWait();
              
-             
+             st.close();
              
          } catch (IOException ex) {
              Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,7 +70,8 @@ public class InfoProductoController implements Initializable {
              stage.setScene(scene);
              stage.showAndWait();
              
-             
+              Stage st=(Stage) this.btncomprar.getScene().getWindow();
+              st.close();
              
          } catch (IOException ex) {
              Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

@@ -16,22 +16,21 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+public class RegistroexitosoController implements Initializable {
 
-public class CompraexitoController implements Initializable {
-
-     @FXML
+      @FXML
     private Button btnconfirmar;
-    
-    
+      
+      
       @FXML
     private void confirmar(ActionEvent event) {
         
         
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Productos.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
             Parent root = loader.load();
 
-            ProductosController controlador = loader.getController();
+            LoginController controlador = loader.getController();
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -47,10 +46,11 @@ public class CompraexitoController implements Initializable {
 
         
     }
+    
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
+       
         
         
     }    

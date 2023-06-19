@@ -56,11 +56,10 @@ public class RegistrarseController implements Initializable {
         
          try {
              
-        
-             FXMLLoader loader=new FXMLLoader(getClass().getResource("Login.fxml"));
+             FXMLLoader loader=new FXMLLoader(getClass().getResource("compraexito.fxml"));
              Parent root=loader.load();
              
-             LoginController controlador=loader.getController();
+             CompraexitoController controlador=loader.getController();
              
              Scene scene =new Scene(root);
              Stage stage=new Stage();
