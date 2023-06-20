@@ -54,8 +54,6 @@ public class ListasClientes {
 
     }
     
-    
-    
     public Clientes buscarCorreo(String emai) {
 
         if (cab == null) {

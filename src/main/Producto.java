@@ -4,21 +4,28 @@ package main;
 
 public class Producto {
     
-    int id;
-    String nombre;
-    float precio;
-    String info;
-    int cant;
-    Producto sig;
+    
+   public String nombre;
+   public int cant;
+   public String marca;
+   public String info;
+   public float precio;
+   public Producto sig;
 
-    public Producto(int id, String nombre, float precio, String info, int cant) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.info = info;
-        this.cant = cant;
-        sig=null;
+    public Producto( ) {
+      
     }
+
+    public Producto(String nombre, int cant, String marca, String info, float precio) {
+        this.nombre = nombre;
+        this.cant = cant;
+        this.marca = marca;
+        this.info = info;
+        this.precio = precio;
+        
+    }
+    
+    
     
     
     

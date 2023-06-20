@@ -35,7 +35,33 @@ public class LoginController implements Initializable {
 
     @FXML
     private void loginadminbtn(ActionEvent event) {
+ListaAdmin ls = new ListaAdmin();
+        
+        String email=this.txtemail.getText();
+        String contra=this.txtcontra.getText();
 
+        admin l = ls.login(email, contra);
+
+        if (l != null) {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Productos.fxml"));
+                Parent root = loader.load();
+
+                ProductosController controlador = loader.getController();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(scene);
+                stage.showAndWait();
+
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            
+        }
     }
 
     @FXML
