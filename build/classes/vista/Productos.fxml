@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ProductosController">
+   <children>
+      <Pane layoutX="-1.0" layoutY="-2.0" prefHeight="74.0" prefWidth="694.0" style="-fx-background-color: LIGHTGREY;">
+         <children>
+            <TextField fx:id="txtBusqueda" layoutX="170.0" layoutY="25.0" prefHeight="37.0" prefWidth="228.0" promptText="Search" />
+            <Button fx:id="btnbuscar" layoutX="398.0" layoutY="19.0" mnemonicParsing="false" onAction="#buscar" style="-fx-background-color: LIGHTGREY;">
+               <graphic>
+                  <ImageView fitHeight="73.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../IMAGES/lupa.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnsesion" layoutX="499.0" layoutY="12.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: LIGHTGREY;" text="Cerrar Sesión">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../IMAGES/icon%20cerrar%20sesion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btncarrito" layoutX="620.0" layoutY="12.0" mnemonicParsing="false" onAction="#Carrito" prefHeight="52.0" prefWidth="66.0" style="-fx-background-color: LIGHTGREY;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../IMAGES/carrito.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="74.0" fitWidth="140.0" layoutX="7.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMAGES/letras%20farma.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="93.0" fitWidth="163.0" layoutX="6.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/acetaminofen.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="93.0" fitWidth="140.0" layoutX="225.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/losartan.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="109.0" fitWidth="102.0" layoutX="399.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/dolex-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="109.0" fitWidth="177.0" layoutX="524.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/lumbal.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/ceterizina.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="93.0" fitWidth="175.0" layoutX="229.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/paracetamol.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="150.0" layoutX="400.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/ibuprofeno.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="133.0" fitWidth="140.0" layoutX="547.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/loratadina.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="109.0" fitWidth="150.0" layoutX="14.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/metronidazol.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="109.0" fitWidth="112.0" layoutX="221.0" layoutY="473.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/vita%20c%20r.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="413.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMAGES/vita%20e.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="22.0" layoutY="167.0" prefHeight="45.0" prefWidth="140.0" text="Acetaminofén 500mg (genfar) x100Tab" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="201.0" layoutY="171.0" prefHeight="37.0" prefWidth="168.0" text="Losartán 50mg (genfar) x30Tab " wrapText="true" />
+      <Label layoutX="400.0" layoutY="181.0" text="Dolex (gsk) x10Tab" />
+      <Label layoutX="550.0" layoutY="181.0" text="Lumbal (Abbott x36 Tab" />
+      <Label layoutX="11.0" layoutY="348.0" prefHeight="37.0" prefWidth="140.0" text="Ceterizina 10 mg (genfar) x10 Tab" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="211.0" layoutY="348.0" prefHeight="74.0" prefWidth="168.0" text="Paracetamol 500mg (Bayern)    x30 Tab" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="408.0" layoutY="357.0" prefHeight="45.0" prefWidth="156.0" text="Ibuprofeno 800 mg (genfar) x50 Tab" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="70.0" layoutY="217.0" text="19.900">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="275.0" layoutY="209.0" text="21.000">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="431.0" layoutY="209.0" text="21.500">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="602.0" layoutY="204.0" text="29.000">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="394.0" text="17.000">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="257.0" layoutY="404.0" text="15.900">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="462.0" layoutY="409.0" text="16.000">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label layoutX="582.0" layoutY="363.0" prefHeight="45.0" prefWidth="112.0" text="Loratadina 10mg (genfar) x10Tab" wrapText="true" />
+      <Button fx:id="btn1" layoutX="72.0" layoutY="235.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn2" layoutX="276.0" layoutY="231.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn3" layoutX="429.0" layoutY="231.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn4" layoutX="604.0" layoutY="231.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn5" layoutX="58.0" layoutY="417.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn6" layoutX="259.0" layoutY="430.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn7" layoutX="464.0" layoutY="430.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn8" layoutX="588.0" layoutY="430.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Label layoutX="588.0" layoutY="409.0" text="18.400" textAlignment="CENTER" />
+      <Label layoutX="32.0" layoutY="573.0" prefHeight="37.0" prefWidth="120.0" text="Metronidazol 500mg (genfar) x100Tab" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="225.0" layoutY="582.0" prefHeight="37.0" prefWidth="120.0" text="Vitamina C 500mg (MK) X100Tab" wrapText="true" />
+      <Label layoutX="400.0" layoutY="582.0" prefHeight="37.0" prefWidth="128.0" text="Vitamina E (Naturlight x60 Tab" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="67.0" layoutY="611.0" text="30.000" />
+      <Label layoutX="262.0" layoutY="628.0" text="27.000" />
+      <Label layoutX="455.0" layoutY="628.0" text="24.000" />
+      <Button fx:id="btn9" layoutX="55.0" layoutY="645.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn10" layoutX="249.0" layoutY="658.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+      <Button fx:id="btn11" layoutX="452.0" layoutY="658.0" mnemonicParsing="false" onAction="#ver" style="-fx-background-color: gold;" text="Ver" />
+   </children>
+</AnchorPane>
