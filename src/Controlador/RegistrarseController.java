@@ -45,7 +45,7 @@ public class RegistrarseController implements Initializable {
     @FXML
     private void btnConfimar(ActionEvent event) {
 
-        String opcion = JOptionPane.showInputDialog("¿como Admin o cliente?");
+        String opcion = JOptionPane.showInputDialog("¿como Admin o cliente?.");
 
         String nombre = this.txtNombre.getText();
         String correo = this.txtCorreo.getText();
