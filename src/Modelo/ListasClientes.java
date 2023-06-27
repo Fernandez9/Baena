@@ -2,12 +2,11 @@
 package Modelo;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 public class ListasClientes {
 
-    Clientes cab;
+    Cliente cab;
 
     public ListasClientes() {
         cab = null;
@@ -15,9 +14,9 @@ public class ListasClientes {
 
     //dentro del boton login, validamos, si es true, cambia de ventana 
     //y oculta la de login, si es false, se mantiene la ventana
-    public Clientes login(String corre, String contras) {
+    public Cliente login(String corre, String contras) {
 
-        Clientes aux=buscarCorreo(corre);
+        Cliente aux = buscarCorreo(corre);
         
         if (aux == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -54,13 +53,13 @@ public class ListasClientes {
 
     }
     
-    public Clientes buscarCorreo(String emai) {
+    public Cliente buscarCorreo(String emai) {
 
         if (cab == null) {
             return null;
         } else {
 
-            Clientes p = cab;
+            Cliente p = cab;
 
             while (p != null) {
 
@@ -77,9 +76,9 @@ public class ListasClientes {
         
     }
 
-    public Clientes CrearNodo( String name, String email,String password, float cellph) {
+    public Cliente CrearNodo( String name, String email,String password, float cellph) {
 
-        Clientes buscar = null;
+        Cliente buscar = null;
 
         try {
             buscar = buscarCorreo(email);
@@ -97,7 +96,7 @@ public class ListasClientes {
                 return null;
             } else {
 
-                Clientes info = new Clientes(name,email, 
+                Cliente info = new Cliente(name,email, 
                         password,cellph);
                 return info;
             }
@@ -109,11 +108,11 @@ public class ListasClientes {
 
     }
     
-    public Clientes getUltimo(){
+    public Cliente getUltimo(){
         if(cab==null)
             return null;
         else{
-            Clientes p = cab;
+            Cliente p = cab;
             while (p.sig != null) {
                 p = p.sig;
             }
@@ -123,7 +122,7 @@ public class ListasClientes {
 
     public void registrar(String name, String email,String password, float cellph) {
 
-        Clientes info = CrearNodo(name, email, password, cellph);
+        Cliente info = CrearNodo(name, email, password, cellph);
 
         if (info != null) {
             if (cab == null) {
@@ -131,7 +130,7 @@ public class ListasClientes {
                 
                 
             } else {
-               Clientes ultimo=getUltimo();
+               Cliente ultimo=getUltimo();
                 ultimo.sig = info;
                 info.ant = ultimo;
                
@@ -145,7 +144,7 @@ public class ListasClientes {
 
     }
     
-   // Clientes crearNodoCompra(){
+   // Cliente crearNodoCompra(){
         
    // }
     

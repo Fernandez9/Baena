@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.admin;
-import Modelo.Clientes;
+import Modelo.Cliente;
 import Modelo.ListasClientes;
 import Modelo.ListaAdmin;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,20 +38,26 @@ public class LoginController implements Initializable {
     @FXML
     private Button btnRegistro;
 
+    ListasClientes lc = new ListasClientes();
+    ListaAdmin la = new ListaAdmin();
+
     @FXML
     private void loginadminbtn(ActionEvent event) {
-    
-        ListaAdmin ls = new ListaAdmin();
-        
-        String email=this.txtemail.getText();
-        String contra=this.txtcontra.getText();
 
-        admin l = ls.login(email, contra);
+        String email = this.txtemail.getText();
+        String contra = this.txtcontra.getText();
+
+        admin l = la.login(email, contra);
 
         if (l != null) {
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Productos.fxml"));
+
+                Node source = (Node) event.getSource();
+                Stage Old = (Stage) source.getScene().getWindow();
+                Old.close();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Productos.fxml"));
                 Parent root = loader.load();
 
                 ProductosController controlador = loader.getController();
@@ -59,29 +66,33 @@ public class LoginController implements Initializable {
                 Stage stage = new Stage();
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setScene(scene);
-                stage.showAndWait();
+                stage.show();
 
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            
+
         }
     }
 
     @FXML
     private void loginclientebtn(ActionEvent event) {
-        ListasClientes ls = new ListasClientes();
-        
-        String email=this.txtemail.getText();
-        String contra=this.txtcontra.getText();
 
-        Clientes l = ls.login(email, contra);
+        String email = this.txtemail.getText();
+        String contra = this.txtcontra.getText();
+
+        Cliente l = lc.login(email, contra);
 
         if (l != null) {
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Productos.fxml"));
+
+                Node source = (Node) event.getSource();
+                Stage stageOld = (Stage) source.getScene().getWindow();
+                stageOld.close();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Productos.fxml"));
                 Parent root = loader.load();
 
                 ProductosController controlador = loader.getController();
@@ -90,13 +101,13 @@ public class LoginController implements Initializable {
                 Stage stage = new Stage();
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setScene(scene);
-                stage.showAndWait();
+                stage.show();
 
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            
+
         }
     }
 
@@ -104,6 +115,11 @@ public class LoginController implements Initializable {
     private void registrasebtn(ActionEvent event) {
 
         try {
+
+            Node source = (Node) event.getSource();
+            Stage stageOld = (Stage) source.getScene().getWindow();
+            stageOld.close();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Registrarse.fxml"));
             Parent root = loader.load();
 
@@ -112,9 +128,8 @@ public class LoginController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
-            
             stage.setScene(scene);
-            stage.showAndWait();
+            stage.show();
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

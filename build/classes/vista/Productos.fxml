@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -9,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ProductosController">
+<AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ProductosController">
    <children>
       <Pane layoutX="-1.0" layoutY="-2.0" prefHeight="74.0" prefWidth="694.0" style="-fx-background-color: LIGHTGREY;">
          <children>
@@ -23,16 +28,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnsesion" layoutX="499.0" layoutY="12.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: LIGHTGREY;" text="Cerrar Sesión">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../IMAGES/icon%20cerrar%20sesion.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="btncarrito" layoutX="620.0" layoutY="12.0" mnemonicParsing="false" onAction="#Carrito" prefHeight="52.0" prefWidth="66.0" style="-fx-background-color: LIGHTGREY;">
+            <Button fx:id="btncarrito" layoutX="620.0" layoutY="12.0" mnemonicParsing="false" onAction="#carrito" prefHeight="52.0" prefWidth="66.0" style="-fx-background-color: LIGHTGREY;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -46,6 +42,12 @@
                   <Image url="@../IMAGES/letras%20farma.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="65.0" layoutX="489.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMAGES/icon%20cerrar%20sesion.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="527.0" layoutY="25.0" mnemonicParsing="false" text="Cerrar sesion" />
          </children>
       </Pane>
       <ImageView fitHeight="93.0" fitWidth="163.0" layoutX="6.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">

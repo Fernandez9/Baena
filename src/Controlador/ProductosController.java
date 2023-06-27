@@ -1,7 +1,5 @@
 package Controlador;
 
-import Controlador.LoginController;
-import Controlador.CarritoController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,13 +9,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 public class ProductosController implements Initializable {
 
@@ -64,7 +62,8 @@ public class ProductosController implements Initializable {
     private void carrito(ActionEvent event) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Carrito.fxml"));
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Carrito.fxml"));
             Parent root = loader.load();
 
             CarritoController controlador = loader.getController();
@@ -73,7 +72,7 @@ public class ProductosController implements Initializable {
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.showAndWait();
+            stage.show();
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,21 +83,21 @@ public class ProductosController implements Initializable {
     private void cerrarSesion(ActionEvent event) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+
+            Node source = (Node) event.getSource();
+            Stage Old = (Stage) source.getScene().getWindow();
+            Old.close();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Login.fxml"));
             Parent root = loader.load();
 
             LoginController controlador = loader.getController();
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-             Stage st=(Stage) this.btnsesion.getScene().getWindow();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.showAndWait();
-            
-           
-            st.hide();
-            
+            stage.show();
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -121,7 +120,7 @@ public class ProductosController implements Initializable {
 
         } else if (evt.equals(btn2)) {
 
-        } else if (evt.equals(btn3))  {
+        } else if (evt.equals(btn3)) {
 
         } else if (evt.equals(btn4)) {
 

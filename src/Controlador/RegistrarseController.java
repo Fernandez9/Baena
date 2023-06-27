@@ -1,7 +1,5 @@
 package Controlador;
 
-import Controlador.RegistroexitosoController;
-import Controlador.LoginController;
 import Modelo.ListasClientes;
 import Modelo.ListaAdmin;
 import java.io.IOException;
@@ -13,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -42,6 +41,9 @@ public class RegistrarseController implements Initializable {
     @FXML
     private Button btn2;
 
+    ListasClientes lc = new ListasClientes();
+    ListaAdmin la = new ListaAdmin();
+
     @FXML
     private void btnConfimar(ActionEvent event) {
 
@@ -57,22 +59,28 @@ public class RegistrarseController implements Initializable {
 
             if (contra.equals(confirContra)) {
 
-                ListasClientes ls = new ListasClientes();
+                lc.registrar(nombre, correo, contra, cel);
 
-                ls.registrar(nombre, correo, contra, cel);
-                
                 try {
 
+                    Node source = (Node) event.getSource();
+                    Stage stageOld = (Stage) source.getScene().getWindow();
+                    stageOld.close();
+
+                    //Se carga el archivo FXML.
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/registroexitoso.fxml"));
                     Parent root = loader.load();
 
                     RegistroexitosoController controlador = loader.getController();
+                    controlador.la = this.la;
+                    controlador.lc = this.lc;
 
                     Scene scene = new Scene(root);
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setScene(scene);
-                    stage.showAndWait();
+
+                    stage.show();
 
                 } catch (IOException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,19 +91,21 @@ public class RegistrarseController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setTitle("Error");
                 alert.setContentText("las Contraseñas no son iguales");
-                alert.showAndWait();
-                
+                alert.show();
+
             }
 
-        } else if(opcion.equals("Admin")){
+        } else if (opcion.equals("Admin")) {
 
             if (contra.equals(confirContra)) {
 
-                ListaAdmin ls = new ListaAdmin();
+                la.registrar(nombre, correo, contra, cel);
 
-                ls.registrar(nombre, correo, contra, cel);
+                try {
 
-                 try {
+                    Node source = (Node) event.getSource();
+                    Stage stageOld = (Stage) source.getScene().getWindow();
+                    stageOld.close();
 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/registroexitoso.fxml"));
                     Parent root = loader.load();
@@ -106,24 +116,23 @@ public class RegistrarseController implements Initializable {
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setScene(scene);
-                    stage.showAndWait();
+                    stage.show();
 
                 } catch (IOException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             } else {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setTitle("Error");
                 alert.setContentText("las Contraseñas no son iguales");
-                alert.showAndWait();
+                alert.show();
 
-               
             }
 
-        }else{
+        } else {
             JOptionPane.showConfirmDialog(null, "Ingrese una opción correcta");
         }
 
@@ -133,6 +142,11 @@ public class RegistrarseController implements Initializable {
     private void Volverbtn(ActionEvent event) {
 
         try {
+
+            Node source = (Node) event.getSource();
+            Stage stageOld = (Stage) source.getScene().getWindow();
+            stageOld.close();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Login.fxml"));
             Parent root = loader.load();
 
@@ -142,7 +156,7 @@ public class RegistrarseController implements Initializable {
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.showAndWait();
+            stage.show();
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

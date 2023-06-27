@@ -1,20 +1,16 @@
 package Modelo;
 
-public class Clientes {
+public class Cliente {
 
     public String nombre;
     public String correo;
     public String contra;
     public float cel;
 
-    public Clientes sig;
-    public Clientes ant;
+    public Cliente sig;
+    public Cliente ant;
 
-    public Clientes() {
-
-    }
-
-    public Clientes(String nombre, String correo, String contra, float cel) {
+    public Cliente(String nombre, String correo, String contra, float cel) {
 
         this.nombre = nombre;
         this.correo = correo;
@@ -25,8 +21,4 @@ public class Clientes {
         ant = null;
     }
 
-
-   
-    
-    
 }
