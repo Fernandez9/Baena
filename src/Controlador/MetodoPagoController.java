@@ -1,9 +1,8 @@
 package Controlador;
 
-import Controlador.LoginController;
-import Controlador.TarjetaController;
-import Controlador.CompraexitoController;
-import Controlador.CarritoController;
+import Modelo.Administrador;
+import Modelo.Cliente;
+import Modelo.ListasClientes;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,23 +15,27 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MetodoPagoController implements Initializable {
 
     @FXML
-    private Button btnagregar;
-
-    @FXML
-    private Button btefectivo;
-    @FXML
     private Button bttarjeta;
+
     @FXML
     private Button btvolver;
 
     @FXML
-    private Button txttotalpagar;
+    private TextField txttotalpagar;
+
+    @FXML
+    private Button btefectivo;
+    
+    Cliente clienteActual;
+    ListasClientes lc = new ListasClientes();
+    Administrador admin = new Administrador();
 
     @FXML
     private void tarjeta(ActionEvent event) {

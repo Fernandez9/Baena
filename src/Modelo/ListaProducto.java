@@ -26,7 +26,7 @@ public class ListaProducto {
         }
     }
 
-    Producto buscarMarca(String marca) {
+    public Producto buscarMarca(String marca) {
         if (tope == null) {
             return null;
         } else {
@@ -41,7 +41,7 @@ public class ListaProducto {
         }
     }
 
-    Producto buscarNombre(String nombr) {
+    public Producto buscarNombre(String nombr) {
         if (tope == null) {
             return null;
         } else {
@@ -56,7 +56,7 @@ public class ListaProducto {
         }
     }
 
-    Producto CrearNodo(String name, int stock, String marc, String cost, float precio) {
+    public Producto CrearNodo(String name, int stock, String marc, String cost, float precio) {
 
         try {
             Producto d = buscarMarca(marc);
@@ -82,7 +82,7 @@ public class ListaProducto {
         return null;
     }
 
-    void setPush(String name, int stock, String marc, String cost, float precio) {
+    public void setPush(String name, int stock, String marc, String cost, float precio) {
         Producto q = CrearNodo(name, stock, marc, cost, precio);
         if (q != null) {
             if (tope == null) {
@@ -110,16 +110,6 @@ public class ListaProducto {
                 alert.showAndWait();
             }
         }
-    }
-    
-     
-    
-    public void carrito(String name, int stock, String marc, String cost, float precio){
-        
-        ListaCarrito ls=new ListaCarrito();
-        
-        ls.registrar(name, stock, marc, cost, precio);
-        
     }
     
 

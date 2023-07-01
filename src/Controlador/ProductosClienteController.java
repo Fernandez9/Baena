@@ -1,5 +1,8 @@
 package Controlador;
 
+import Modelo.Administrador;
+import Modelo.Cliente;
+import Modelo.ListasClientes;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ProductosController implements Initializable {
+public class ProductosClienteController implements Initializable {
 
     @FXML
     private Button btnsesion;
@@ -29,44 +32,27 @@ public class ProductosController implements Initializable {
     private Button btnbuscar;
 
     @FXML
-    private Button btn1;
-
-    @FXML
-    private Button btn2;
-
-    @FXML
-    private Button btn3;
-    @FXML
-    private Button btn4;
-    @FXML
-    private Button btn5;
-    @FXML
-    private Button btn6;
-    @FXML
-    private Button btn7;
-    @FXML
-    private Button btn8;
-    @FXML
-    private Button btn9;
-    @FXML
-    private Button btn10;
-    @FXML
-    private Button btn11;
-    @FXML
-    private Button btn12;
-
-    @FXML
     private TextField busqueda;
+
+    Cliente clienteActual;
+    ListasClientes lc = new ListasClientes();
+    Administrador admin = new Administrador();
 
     @FXML
     private void carrito(ActionEvent event) {
 
         try {
 
+            Node source = (Node) event.getSource();
+            Stage Old = (Stage) source.getScene().getWindow();
+            Old.close();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Carrito.fxml"));
             Parent root = loader.load();
 
             CarritoController controlador = loader.getController();
+            controlador.clienteActual = this.clienteActual;
+            controlador.lc = this.lc;
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -92,6 +78,8 @@ public class ProductosController implements Initializable {
             Parent root = loader.load();
 
             LoginController controlador = loader.getController();
+            controlador.lc = this.lc;
+            controlador.Admin = this.admin;
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -115,32 +103,6 @@ public class ProductosController implements Initializable {
     private void ver(ActionEvent event) {
 
         Object evt = event.getSource();
-
-        if (evt.equals(btn1)) {
-
-        } else if (evt.equals(btn2)) {
-
-        } else if (evt.equals(btn3)) {
-
-        } else if (evt.equals(btn4)) {
-
-        } else if (evt.equals(btn5)) {
-
-        } else if (evt.equals(btn6)) {
-
-        } else if (evt.equals(btn7)) {
-
-        } else if (evt.equals(btn8)) {
-
-        } else if (evt.equals(btn9)) {
-
-        } else if (evt.equals(btn10)) {
-
-        } else if (evt.equals(btn11)) {
-
-        } else if (evt.equals(btn12)) {
-
-        }
 
     }
 

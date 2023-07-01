@@ -1,10 +1,8 @@
-
 package Modelo;
 
 
 public class Producto {
-    
-    
+   
    public String nombre;
    public int cant;
    public String marca;

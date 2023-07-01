@@ -31,7 +31,7 @@ public class CompraexitoController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Productos.fxml"));
             Parent root = loader.load();
 
-            ProductosController controlador = loader.getController();
+            ProductosClienteController controlador = loader.getController();
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();

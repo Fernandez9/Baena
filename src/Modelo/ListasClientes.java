@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import javafx.scene.control.Alert;
@@ -17,42 +16,41 @@ public class ListasClientes {
     public Cliente login(String corre, String contras) {
 
         Cliente aux = buscarCorreo(corre);
-        
+
         if (aux == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
             alert.setContentText("No se encuentra registrado");
-            alert.showAndWait();
+            alert.show();
+        } else {
 
-            return null;
-        } else{
-            JOptionPane.showMessageDialog(null, "si hay clientes");
-       
-                if (( aux.contra).equals(contras)) {
+            if ((aux.getContra()).equals(contras)) {
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setTitle("Bienvenido");
                 alert.setContentText("Bienvenido");
                 alert.showAndWait();
+                alert.close();
                 return aux;
 
-            } else  {
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setTitle("Error");
                 alert.setContentText("Contraseña incorrecta");
                 alert.showAndWait();
-                return null;
+                alert.close();
 
             }
-                
+
         }
-         
+
+        return null;
 
     }
-    
+
     public Cliente buscarCorreo(String emai) {
 
         if (cab == null) {
@@ -63,27 +61,47 @@ public class ListasClientes {
 
             while (p != null) {
 
-                if (p.correo.equals(emai)) {
+                if (p.getCorreo().equals(emai)) {
                     return p;
                 } else {
-                    p = p.sig;
+                    p = p.getSig();
                 }
 
             }
             return null;
         }
 
-        
     }
 
-    public Cliente CrearNodo( String name, String email,String password, float cellph) {
+    public Cliente buscarContrasenia(String contra) {
 
-        Cliente buscar = null;
+        if (cab == null) {
+            return null;
+        } else {
+
+            Cliente p = cab;
+
+            while (p != null) {
+
+                if (p.getContra().equals(contra)) {
+                    return p;
+                } else {
+                    p = p.getSig();
+                }
+
+            }
+            return null;
+        }
+
+    }
+
+    public Cliente CrearNodo(String name, String email, String password, String cellph) {
+
+        Cliente buscar;
 
         try {
             buscar = buscarCorreo(email);
 
-            
             if (buscar != null) {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -91,13 +109,13 @@ public class ListasClientes {
                 alert.setTitle("Error");
                 alert.setContentText("Error: Este ´correo´ "
                         + "ya se encuentra en uso.  Reemplazarlo!");
-                alert.showAndWait();
+                alert.show();
 
                 return null;
             } else {
 
-                Cliente info = new Cliente(name,email, 
-                        password,cellph);
+                Cliente info = new Cliente(name, email,
+                        password, cellph);
                 return info;
             }
 
@@ -107,46 +125,42 @@ public class ListasClientes {
         }
 
     }
-    
-    public Cliente getUltimo(){
-        if(cab==null)
+
+    public Cliente getUltimo() {
+        if (cab == null) {
             return null;
-        else{
+        } else {
             Cliente p = cab;
-            while (p.sig != null) {
-                p = p.sig;
+            while (p.getSig() != null) {
+                p = p.getSig();
             }
             return p;
         }
     }
 
-    public void registrar(String name, String email,String password, float cellph) {
+    public void registrar(String name, String email, String password, String cellph) {
 
         Cliente info = CrearNodo(name, email, password, cellph);
 
         if (info != null) {
             if (cab == null) {
                 cab = info;
-                
-                
+
             } else {
-               Cliente ultimo=getUltimo();
-                ultimo.sig = info;
-                info.ant = ultimo;
-               
+                Cliente ultimo = getUltimo();
+                ultimo.setSig(info);
+                info.setAnt(ultimo);
+
             }
         } else {
         }
 
     }
 
-   public void registraCompra() {
+    public void registraCompra() {
 
     }
-    
-   // Cliente crearNodoCompra(){
-        
-   // }
-    
-    
+
+    // Cliente crearNodoCompra(){
+    // }
 }

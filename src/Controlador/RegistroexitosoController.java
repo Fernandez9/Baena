@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.ListaAdmin;
+import Modelo.Administrador;
 import Modelo.ListasClientes;
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +24,7 @@ public class RegistroexitosoController implements Initializable {
     private Button btnconfirmar;
 
     ListasClientes lc = new ListasClientes();
-    ListaAdmin la = new ListaAdmin();
+    Administrador Admin = new Administrador();
 
     @FXML
     private void confirmar(ActionEvent event) {
@@ -39,7 +39,7 @@ public class RegistroexitosoController implements Initializable {
             Parent root = loader.load();
 
             LoginController controlador = loader.getController();
-            controlador.la = this.la;
+            controlador.Admin = this.Admin;
             controlador.lc = this.lc;
 
             Scene scene = new Scene(root);

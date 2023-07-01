@@ -1,26 +1,17 @@
 package Modelo;
 
-public class Cliente {
+public class Administrador {
 
     private String nombre;
     private String correo;
     private String contra;
     private String cel;
-    
-    private ListaProducto carrito;
 
-    private Cliente sig;
-    private Cliente ant;
-
-    public Cliente(String nombre, String correo, String contra, String cel) {
-
-        this.nombre = nombre;
-        this.correo = correo;
-        this.contra = contra;
-        this.cel = cel;
-
-        this.sig = null;
-        this.ant = null;
+    public Administrador() {
+        this.nombre = "AdminDefault";
+        this.correo = "AdminDefault@gmail.com";
+        this.contra = "2023";
+        this.cel = "3145812761";
     }
 
     public String getNombre() {
@@ -53,22 +44,6 @@ public class Cliente {
 
     public void setCel(String cel) {
         this.cel = cel;
-    }
-
-    public Cliente getSig() {
-        return sig;
-    }
-
-    public void setSig(Cliente sig) {
-        this.sig = sig;
-    }
-
-    public Cliente getAnt() {
-        return ant;
-    }
-
-    public void setAnt(Cliente ant) {
-        this.ant = ant;
     }
     
     

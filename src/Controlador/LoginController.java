@@ -1,9 +1,8 @@
 package Controlador;
 
-import Modelo.admin;
+import Modelo.Administrador;
 import Modelo.Cliente;
 import Modelo.ListasClientes;
-import Modelo.ListaAdmin;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -39,7 +39,7 @@ public class LoginController implements Initializable {
     private Button btnRegistro;
 
     ListasClientes lc = new ListasClientes();
-    ListaAdmin la = new ListaAdmin();
+    Administrador Admin = new Administrador();
 
     @FXML
     private void loginadminbtn(ActionEvent event) {
@@ -47,9 +47,7 @@ public class LoginController implements Initializable {
         String email = this.txtemail.getText();
         String contra = this.txtcontra.getText();
 
-        admin l = la.login(email, contra);
-
-        if (l != null) {
+        if (Admin.getCorreo().equals(email) && Admin.getContra().equals(contra)) {
 
             try {
 
@@ -57,10 +55,10 @@ public class LoginController implements Initializable {
                 Stage Old = (Stage) source.getScene().getWindow();
                 Old.close();
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Productos.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ProductosAdministrador.fxml"));
                 Parent root = loader.load();
 
-                ProductosController controlador = loader.getController();
+                ProductosAdministradorController controlador = loader.getController();
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -72,6 +70,12 @@ public class LoginController implements Initializable {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
+            
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Datos incorrectos");
+            alert.show();
 
         }
     }
@@ -92,10 +96,13 @@ public class LoginController implements Initializable {
                 Stage stageOld = (Stage) source.getScene().getWindow();
                 stageOld.close();
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Productos.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ProductosCliente.fxml"));
                 Parent root = loader.load();
 
-                ProductosController controlador = loader.getController();
+                ProductosClienteController controlador = loader.getController();
+                controlador.lc = this.lc;
+                controlador.admin = this.Admin;
+                controlador.clienteActual = l;
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -106,8 +113,6 @@ public class LoginController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-
         }
     }
 
@@ -124,6 +129,8 @@ public class LoginController implements Initializable {
             Parent root = loader.load();
 
             RegistrarseController controlador = loader.getController();
+            controlador.lc = this.lc;
+            controlador.Admin = this.Admin;
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();

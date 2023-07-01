@@ -1,7 +1,7 @@
 package Controlador;
 
+import Modelo.Administrador;
 import Modelo.ListasClientes;
-import Modelo.ListaAdmin;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,98 +42,53 @@ public class RegistrarseController implements Initializable {
     private Button btn2;
 
     ListasClientes lc = new ListasClientes();
-    ListaAdmin la = new ListaAdmin();
+    Administrador Admin = new Administrador();
 
     @FXML
     private void btnConfimar(ActionEvent event) {
 
-        String opcion = JOptionPane.showInputDialog("¿como Admin o cliente?.");
-
         String nombre = this.txtNombre.getText();
         String correo = this.txtCorreo.getText();
         String contra = this.txtContra.getText();
-        float cel = Integer.parseInt(this.txtCel.getText());
+        String cel = this.txtCel.getText();
         String confirContra = this.txtConfirContra.getText();
 
-        if (opcion.equals("Cliente")) {
+        if (contra.equals(confirContra)) {
 
-            if (contra.equals(confirContra)) {
+            lc.registrar(nombre, correo, contra, cel);
 
-                lc.registrar(nombre, correo, contra, cel);
+            try {
 
-                try {
+                Node source = (Node) event.getSource();
+                Stage stageOld = (Stage) source.getScene().getWindow();
+                stageOld.close();
 
-                    Node source = (Node) event.getSource();
-                    Stage stageOld = (Stage) source.getScene().getWindow();
-                    stageOld.close();
+                //Se carga el archivo FXML.
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/registroexitoso.fxml"));
+                Parent root = loader.load();
 
-                    //Se carga el archivo FXML.
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/registroexitoso.fxml"));
-                    Parent root = loader.load();
+                RegistroexitosoController controlador = loader.getController();
+                controlador.Admin = this.Admin;
+                controlador.lc = this.lc;
 
-                    RegistroexitosoController controlador = loader.getController();
-                    controlador.la = this.la;
-                    controlador.lc = this.lc;
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setScene(scene);
 
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.setScene(scene);
+                stage.show();
 
-                    stage.show();
-
-                } catch (IOException ex) {
-                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setTitle("Error");
-                alert.setContentText("las Contraseñas no son iguales");
-                alert.show();
-
-            }
-
-        } else if (opcion.equals("Admin")) {
-
-            if (contra.equals(confirContra)) {
-
-                la.registrar(nombre, correo, contra, cel);
-
-                try {
-
-                    Node source = (Node) event.getSource();
-                    Stage stageOld = (Stage) source.getScene().getWindow();
-                    stageOld.close();
-
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/registroexitoso.fxml"));
-                    Parent root = loader.load();
-
-                    RegistroexitosoController controlador = loader.getController();
-
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.setScene(scene);
-                    stage.show();
-
-                } catch (IOException ex) {
-                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            } else {
-
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(null);
-                alert.setTitle("Error");
-                alert.setContentText("las Contraseñas no son iguales");
-                alert.show();
-
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         } else {
-            JOptionPane.showConfirmDialog(null, "Ingrese una opción correcta");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("las Contraseñas no son iguales");
+            alert.show();
+
         }
 
     }
