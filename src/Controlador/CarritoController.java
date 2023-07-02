@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Administrador;
 import Modelo.Cliente;
+import Modelo.ListaProducto;
 import Modelo.ListasClientes;
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +34,7 @@ public class CarritoController implements Initializable {
     Cliente clienteActual;
     ListasClientes lc = new ListasClientes();
     Administrador admin = new Administrador();
+    ListaProducto productos = new ListaProducto();
 
     @FXML
     void historial(ActionEvent event) {
@@ -55,13 +57,14 @@ public class CarritoController implements Initializable {
             controlador.lc = this.lc;
             controlador.admin = this.admin;
             controlador.clienteActual = clienteActual;
+            controlador.productos = this.productos;
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
-            
+
         } catch (IOException ex) {
             Logger.getLogger(CarritoController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -90,11 +93,11 @@ public class CarritoController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
-            
+
         } catch (IOException ex) {
             Logger.getLogger(CarritoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     @Override

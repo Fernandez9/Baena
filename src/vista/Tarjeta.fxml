@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -9,8 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="409.0" prefWidth="312.0" style="-fx-background-color: LIGHTCYAN LIGHTCYAN;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controlador.TarjetaController">
+<AnchorPane id="AnchorPane" prefHeight="409.0" prefWidth="312.0" style="-fx-background-color: LIGHTCYAN LIGHTCYAN;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.TarjetaController">
    <children>
       <Pane layoutX="43.0" layoutY="64.0" prefHeight="309.0" prefWidth="227.0" style="-fx-background-color: MEDIUMAQUAMARINE;">
          <children>
@@ -22,8 +26,8 @@
             <TextField fx:id="txtnombre" layoutX="16.0" layoutY="100.0" prefHeight="25.0" prefWidth="192.0" />
             <TextField fx:id="txtfecha" layoutX="16.0" layoutY="166.0" prefHeight="25.0" prefWidth="191.0" />
             <TextField fx:id="txtcvv" layoutX="16.0" layoutY="230.0" prefHeight="25.0" prefWidth="192.0" />
-            <Button fx:id="btconfirmar" layoutX="116.0" layoutY="280.0" mnemonicParsing="false" onAction="#confirmar" style="-fx-background-color: RED;" text="Confirmar" textFill="WHITE" />
-            <Button fx:id="btvolver" layoutX="36.0" layoutY="279.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: MEDIUMAQUAMARINE;" text="Volver" />
+            <Button fx:id="btconfirmar" layoutX="116.0" layoutY="280.0" mnemonicParsing="false" onAction="#confirmar" style="-fx-background-color: RED; -fx-cursor: hand;" text="Confirmar" textFill="WHITE" />
+            <Button fx:id="btvolver" layoutX="36.0" layoutY="279.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: MEDIUMAQUAMARINE; -fx-cursor: hand;" text="Volver" />
          </children>
       </Pane>
       <ImageView fitHeight="47.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">

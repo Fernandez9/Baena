@@ -2,16 +2,14 @@ package Controlador;
 
 import Modelo.Administrador;
 import Modelo.Cliente;
+import Modelo.ListaProducto;
 import Modelo.ListasClientes;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,7 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class LoginController implements Initializable {
+public class LoginController {
 
     @FXML
     private TextField txtemail;
@@ -40,6 +38,7 @@ public class LoginController implements Initializable {
 
     ListasClientes lc = new ListasClientes();
     Administrador Admin = new Administrador();
+    ListaProducto productos = new ListaProducto();
 
     @FXML
     private void loginadminbtn(ActionEvent event) {
@@ -59,6 +58,9 @@ public class LoginController implements Initializable {
                 Parent root = loader.load();
 
                 ProductosAdministradorController controlador = loader.getController();
+                controlador.lc = this.lc;
+                controlador.admin = this.Admin;
+                controlador.productos = this.productos;
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -70,7 +72,7 @@ public class LoginController implements Initializable {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
@@ -103,6 +105,7 @@ public class LoginController implements Initializable {
                 controlador.lc = this.lc;
                 controlador.admin = this.Admin;
                 controlador.clienteActual = l;
+                controlador.productos = this.productos;
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -130,6 +133,7 @@ public class LoginController implements Initializable {
 
             RegistrarseController controlador = loader.getController();
             controlador.lc = this.lc;
+            controlador.productos = this.productos;
             controlador.Admin = this.Admin;
 
             Scene scene = new Scene(root);
@@ -141,11 +145,6 @@ public class LoginController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
     }
 
 }

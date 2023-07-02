@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Administrador;
+import Modelo.ListaProducto;
 import Modelo.ListasClientes;
 import java.io.IOException;
 import java.net.URL;
@@ -25,6 +26,7 @@ public class RegistroexitosoController implements Initializable {
 
     ListasClientes lc = new ListasClientes();
     Administrador Admin = new Administrador();
+    ListaProducto productos = new ListaProducto();
 
     @FXML
     private void confirmar(ActionEvent event) {
@@ -41,6 +43,7 @@ public class RegistroexitosoController implements Initializable {
             LoginController controlador = loader.getController();
             controlador.Admin = this.Admin;
             controlador.lc = this.lc;
+            controlador.productos = this.productos;
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();

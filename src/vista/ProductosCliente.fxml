@@ -30,7 +30,7 @@
             </Button>
             <Button fx:id="btncarrito" layoutX="620.0" layoutY="12.0" mnemonicParsing="false" onAction="#carrito" prefHeight="52.0" prefWidth="66.0" style="-fx-background-color: LIGHTGREY; -fx-cursor: HAND;">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                      <image>
                         <Image url="@../IMAGES/carrito.png" />
                      </image>
@@ -50,5 +50,15 @@
             <Button fx:id="btnsesion" layoutX="527.0" layoutY="25.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-cursor: HAND;" text="Cerrar sesion" />
          </children>
       </Pane>
+      <ScrollPane layoutX="11.0" layoutY="117.0" prefHeight="411.0" prefWidth="671.0">
+         <content>
+            <GridPane fx:id="gridProductos">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Button fx:id="btnmostrar" layoutX="26.0" layoutY="79.0" mnemonicParsing="false" onAction="#mostrar" text="Mostrar" />
    </children>
 </AnchorPane>

@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Administrador;
+import Modelo.ListaProducto;
 import Modelo.ListasClientes;
 import java.io.IOException;
 import java.net.URL;
@@ -19,7 +20,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 public class RegistrarseController implements Initializable {
 
@@ -43,8 +43,10 @@ public class RegistrarseController implements Initializable {
 
     ListasClientes lc = new ListasClientes();
     Administrador Admin = new Administrador();
+    ListaProducto productos = new ListaProducto();
 
     @FXML
+
     private void btnConfimar(ActionEvent event) {
 
         String nombre = this.txtNombre.getText();
@@ -70,6 +72,7 @@ public class RegistrarseController implements Initializable {
                 RegistroexitosoController controlador = loader.getController();
                 controlador.Admin = this.Admin;
                 controlador.lc = this.lc;
+                controlador.productos = productos;
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -106,6 +109,9 @@ public class RegistrarseController implements Initializable {
             Parent root = loader.load();
 
             LoginController controlador = loader.getController();
+            controlador.Admin = this.Admin;
+            controlador.lc = this.lc;
+            controlador.productos = this.productos;
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();

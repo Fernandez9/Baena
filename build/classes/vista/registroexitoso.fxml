@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -7,8 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="138.0" prefWidth="206.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controlador.RegistroexitosoController">
+<AnchorPane id="AnchorPane" prefHeight="138.0" prefWidth="206.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.RegistroexitosoController">
    <children>
       <ImageView fitHeight="158.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -25,7 +29,7 @@
             <Font name="Bell MT" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="btnexito" layoutX="72.0" layoutY="108.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar">
+      <Button fx:id="btnexito" layoutX="72.0" layoutY="108.0" mnemonicParsing="false" onAction="#confirmar" style="-fx-cursor: hand;" text="Confirmar">
          <font>
             <Font name="Bell MT" size="12.0" />
          </font>

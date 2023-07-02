@@ -9,8 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="498.0" prefWidth="691.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controlador.CarritoController">
+<AnchorPane id="AnchorPane" prefHeight="498.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CarritoController">
    <children>
       <Pane prefHeight="74.0" prefWidth="691.0" style="-fx-background-color: LIGHTGREY;">
          <children>
@@ -19,8 +18,8 @@
                   <Image url="@../IMAGES/letras%20farma.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnhistorial" layoutX="482.0" layoutY="17.0" mnemonicParsing="false" onAction="#historial" prefHeight="40.0" prefWidth="71.0" text="Historial" />
-            <Button fx:id="btnhome" layoutX="564.0" layoutY="17.0" mnemonicParsing="false" onAction="#home" prefHeight="9.0" prefWidth="101.0" text="Home">
+            <Button fx:id="btnhistorial" layoutX="482.0" layoutY="17.0" mnemonicParsing="false" onAction="#historial" prefHeight="40.0" prefWidth="71.0" style="-fx-cursor: hand;" text="Historial" />
+            <Button fx:id="btnhome" layoutX="564.0" layoutY="17.0" mnemonicParsing="false" onAction="#home" prefHeight="9.0" prefWidth="101.0" style="-fx-cursor: hand;" text="Home">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -51,7 +50,7 @@
             </Label>
             <TextField layoutX="14.0" layoutY="80.0" prefHeight="33.0" prefWidth="198.0" style="-fx-background-color: white; -fx-border-color: black;" />
             <TextField layoutX="16.0" layoutY="159.0" prefHeight="33.0" prefWidth="198.0" style="-fx-background-color: white; -fx-border-color: black;" />
-            <Button fx:id="btnconfirmarCompra" layoutX="17.0" layoutY="225.0" mnemonicParsing="false" onAction="#confirmarCompra" prefHeight="39.0" prefWidth="198.0" text="Confirmar compra" textFill="#721919">
+            <Button fx:id="btnconfirmarCompra" layoutX="17.0" layoutY="225.0" mnemonicParsing="false" onAction="#confirmarCompra" prefHeight="39.0" prefWidth="198.0" style="-fx-cursor: hand;" text="Confirmar compra" textFill="#721919">
                <font>
                   <Font size="18.0" />
                </font>

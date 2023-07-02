@@ -1,6 +1,9 @@
 package Controlador;
 
-import Controlador.CompraexitoController;
+import Modelo.Administrador;
+import Modelo.Cliente;
+import Modelo.ListaProducto;
+import Modelo.ListasClientes;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,24 +38,32 @@ public class TarjetaController implements Initializable {
     @FXML
     private Button btconfirmar;
 
+    Cliente clienteActual;
+    ListasClientes lc = new ListasClientes();
+    Administrador admin = new Administrador();
+    ListaProducto productos = new ListaProducto();
+
     @FXML
     private void volver(ActionEvent event) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MetodoPago.fxml"));
+            Node source = (Node) event.getSource();
+            Stage Old = (Stage) source.getScene().getWindow();
+            Old.close();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/MetodoPago.fxml"));
             Parent root = loader.load();
 
             MetodoPagoController controlador = loader.getController();
+            controlador.admin = this.admin;
+            controlador.clienteActual = this.clienteActual;
+            controlador.lc = this.lc;
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.showAndWait();
-
-            Stage st = (Stage) this.btvolver.getScene().getWindow();
-            st.close();
-
+            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -62,19 +74,23 @@ public class TarjetaController implements Initializable {
     private void confirmar(ActionEvent event) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("compraexito.fxml"));
+            Node source = (Node) event.getSource();
+            Stage Old = (Stage) source.getScene().getWindow();
+            Old.close();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/compraexito.fxml"));
             Parent root = loader.load();
 
             CompraexitoController controlador = loader.getController();
+            controlador.admin = this.admin;
+            controlador.clienteActual = this.clienteActual;
+            controlador.lc = this.lc;
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.showAndWait();
-
-            Stage st = (Stage) this.btconfirmar.getScene().getWindow();
-            st.close();
+            stage.show();
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

@@ -23,12 +23,12 @@
                   <Font name="Bell MT" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="bttarjeta" layoutX="140.0" layoutY="147.0" mnemonicParsing="false" onAction="#tarjeta" style="-fx-background-color: DARKSLATEGREY;" text="Tarjeta" textFill="WHITE">
+            <Button fx:id="bttarjeta" layoutX="140.0" layoutY="147.0" mnemonicParsing="false" onAction="#tarjeta" style="-fx-background-color: DARKSLATEGREY; -fx-cursor: hand;" text="Tarjeta" textFill="WHITE">
                <font>
                   <Font name="Bell MT" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btefectivo" layoutX="138.0" layoutY="103.0" mnemonicParsing="false" onAction="#efectivo" style="-fx-background-color: DARKSLATEGREY;" text="Efectivo" textFill="WHITE">
+            <Button fx:id="btefectivo" layoutX="138.0" layoutY="103.0" mnemonicParsing="false" onAction="#efectivo" style="-fx-background-color: DARKSLATEGREY; -fx-cursor: hand;" text="Efectivo" textFill="WHITE">
                <font>
                   <Font name="Bell MT" size="14.0" />
                </font>
@@ -41,7 +41,7 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="btvolver" layoutX="280.0" layoutY="238.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: LIGHTCYAN;" text="Volver">
+      <Button fx:id="btvolver" layoutX="279.0" layoutY="239.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: LIGHTCYAN; -fx-cursor: hand;" text="Volver">
          <font>
             <Font name="Bell MT" size="14.0" />
          </font>
